@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 18:40:06 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/04 16:23:37 by manuelbeele      ###   ########.fr       */
+/*   Created: 2021/11/03 12:25:04 by manuelbeele       #+#    #+#             */
+/*   Updated: 2021/11/03 17:59:46 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int	i;
+	size_t	i;
+	char	*str1;
+	char	*str2;
 
 	i = 0;
-	while (s[i] != '\0')
+	str1 = (char *) src;
+	str2 = (char *) dst;
+	while (i < n)
+	{
+		str2[i] = str1[i];
 		i++;
-	return (i);
+	}
+	str2[i] = '\0';
+	return (dst);
 }
