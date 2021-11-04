@@ -6,26 +6,18 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 18:39:33 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/02 20:05:20 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/04 16:42:44 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char *src)
+char	*ft_strdup(const char *s1)
 {
 	char	*copy;
-	int		len;
 
-	len = 0;
-	while (src[len] != '\0')
-		len++;
-	copy = (char *) malloc(sizeof(*copy) * (len + 1));
+	copy = (char *) malloc(sizeof(*copy) * (ft_strlen(s1) + 1));
 	if (!copy)
-		return (0);
-	len = -1;
-	while (src[++len] != '\0')
-		copy[len] = src[len];
-	copy[len] = '\0';
-	return (copy);
+		return (NULL);
+	return (ft_strcpy(copy, s1));
 }

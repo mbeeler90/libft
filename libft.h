@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 10:16:26 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/04 16:23:54 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/04 16:46:43 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void		ft_putstr(char *str);
 int			*ft_range(int min, int max);
 int			ft_sqrt(int nb);
 int			ft_strcmp(char *s1, char *s2);
-char		*ft_strcpy(char *dest, char *src);
-char		*ft_strdup(char *src);
+char		*ft_strcpy(char *dst, const char *src);
+char		*ft_strdup(const char *s1);
 size_t		ft_strlen(const char *s);
 char		*ft_strlowcase(char *str);
 int			ft_strncmp(char *s1, char *s2, unsigned int n);

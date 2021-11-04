@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 10:00:20 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/04 16:21:09 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/04 16:56:45 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ int	main(void)
 	const char	src2[] = "This is another test!";
 	char		dest2[50];
 
-	ft_memcpy(dest1, src1, 12);
-	memcpy(dest2, src2, 12);
-	printf("TEST 3: memcpy\nown: %s\nsys: %s\nThere should be no undefined behavior at the end of the string (end with \\0)\n\n", dest1, dest2);
+	printf("TEST 3: memcpy\nown: %s\n", (char *) ft_memcpy(dest1, src1, 12));
+	printf("sys: %s\n", (char *) memcpy(dest2, src2, 12));
+	printf("own: %s\nsys: %s\nThere should be no undefined behavior at the end of the string (end with \\0)\n\n", dest1, dest2);
 
 	/* MEMCCPY TESTS */
 	const char	src3[] = "This iso another test!";
