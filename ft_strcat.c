@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbeeler <mbeeler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 18:41:23 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/05 10:55:20 by mbeeler          ###   ########.fr       */
+/*   Created: 2021/11/05 11:16:19 by mbeeler           #+#    #+#             */
+/*   Updated: 2021/11/05 13:47:48 by mbeeler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dst, const char *src, size_t len)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	size_t	i;
+	int	i;
+	int	j;
 
-	i = 0;
-	while (i < len && src[i] != '\0')
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	while (i < len)
-	{
-		dst[i] = '\0';
-		i++;
-	}
-	return (dst);
+	i = ft_strlen(s1);
+	j = -1;
+	while (s2[++j] != '\0')
+		s1[i++] = s2[j];
+	s1[i] = '\0';
+	return (s1);
 }

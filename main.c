@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
+/*   By: mbeeler <mbeeler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 10:00:20 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/04 16:56:45 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/05 16:43:42 by mbeeler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,58 @@ int	main(void)
 	const char	s11[] = "";
 
 	printf("TEST 8: strlen\nown: %lu\nsys: %lu\nown: %lu\nsys: %lu\nown: %lu\nsys: %lu\n\n", ft_strlen(s9), strlen(s9), ft_strlen(s10), strlen(s10), ft_strlen(s11), strlen(s11));
+
+	/* STRDUP TESTS */
+	const char	s11_1[] = "This is a test!";
+
+	printf("TEST 9: strdup\nown: %s\nsys: %s\n\n", ft_strdup(s11_1), strdup(s11_1));
+
+	/* STRCPY TESTS */
+	const char	s12[] = "This is a test!";
+	char		d1[50];
+	char		d2[50];
+
+	printf("TEST 10: strcpy\nown: %s\nsys: %s\nown: %s\nsys: %s\n\n", ft_strcpy(d1, s12), strcpy(d2, s12), d1, d2);
+
+	/* STRNCPY TESTS */
+	const char	s13[] = "This is a test!";
+	char		d3[50] = "1234567890123456789012345678901234567890";
+	char		d4[50] = "1234567890123456789012345678901234567890";
+	char		d5[50] = "1234567890123456789012345678901234567890";
+	char		d6[50] = "1234567890123456789012345678901234567890";
+
+	printf("TEST 11: strncpy\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\nDST should not be \\0 terminated if src is shorter than len\n\n", ft_strncpy(d3, s13, 3), strncpy(d4, s13, 3), ft_strncpy(d5, s13, 30), strncpy(d6, s13, 30), d3, d4, d5, d6, d5 + 30, d6 + 30, d5 + 29, d6 + 29);
+
+	/* STRCAT TESTS */
+	char		s14[50] = "Start: ";
+	char		s14_1[50] = "Start: ";
+	const char	s15[] = "This is a test!";
+
+	printf("TEST 12: strcat\nown: %s\nsys: %s\nown: %s\nsys: %s\n\n", ft_strcat(s14, s15), strcat(s14_1, s15), s14, s14_1);
+
+	/* STRNCAT TESTS */
+	char		s16[50] = "Start: ";
+	char		s16_1[50] = "Start: ";
+	const char	s17[] = "This is a test!";
+
+	printf("TEST 13: strncat\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\n\n", ft_strncat(s16, s17, 8), strncat(s16_1, s17, 8), s16, s16_1, ft_strncat(s16, s17, 30), strncat(s16_1, s17, 30), s16, s16_1);
+
+	/* STRLCAT TESTS */
+	char		s18[10] = "Start: ";
+	char		s18_1[10] = "Start: ";
+	const char	s19[] = "This is a test!";
+	char		s20[0] = "";
+	char		s21[0] = "";
+	char		s22[3] = "ab";
+	char		s23[3] = "ab";
+
+	printf("TEST 14: strlcat\nown: %s\nsys: %s\nown: %lu\nsys: %lu\nown: %s\nsys: %s\nown: %lu\nsys: %lu\nown: %s\nsys: %s\nown: %lu\nsys: %lu\n\n", s18, s18_1, ft_strlcat(s18, s19, 10), strlcat(s18_1, s19, 10), s20, s21, ft_strlcat(s20, s19, 0), strlcat(s21, s19, 0), s22, s23, ft_strlcat(s22, s19, 3), strlcat(s23, s19, 3));
+	
+	/* STRCHR TESTS */
+	const char	s24[] = "This iso another test!";
+	const char	s25[] = "This iso another test!";
+
+	printf("TEST 15: strchr\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\n\n", ft_strchr(s24, 'o', 10), strchr(s25, 'o', 10), ft_strchr(s24, 'o', 5), strchr(s25, 'o', 5), s24, s25);
 
 	return (0);
 }

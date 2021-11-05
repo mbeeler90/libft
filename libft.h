@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
+/*   By: mbeeler <mbeeler@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 10:16:26 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/04 16:46:43 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/05 16:34:25 by mbeeler          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char		*ft_strdup(const char *s1);
 size_t		ft_strlen(const char *s);
 char		*ft_strlowcase(char *str);
 int			ft_strncmp(char *s1, char *s2, unsigned int n);
-char		*ft_strncpy(char *dest, char *src, unsigned int n);
+char		*ft_strncpy(char *dst, const char *src, size_t len);
 char		*ft_strstr(char *str, char *to_find);
 char		*ft_strupcase(char *str);
 void		ft_swap(int *a, int *b);
@@ -78,5 +78,9 @@ void		*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void		*ft_memmove(void *dst, const void *src, size_t len);
 void		*ft_memchr(const void *s, int c, size_t n);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
+char		*ft_strcat(char *s1, const char *s2);
+char		*ft_strncat(char *s1, const char *s2, size_t n);
+size_t		ft_strlcat(char *dst, const char *src, size_t dstsize);
+char		*ft_strchr(const char *s, int c);
 
 #endif
