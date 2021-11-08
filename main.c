@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 10:00:20 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/08 16:24:33 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/08 22:15:24 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ int	main(void)
 
 	ft_memset(str1 + 3, '.', sizeof(char) * 5);
 	memset(str2 + 3, '.', sizeof(char) * 5);
-	printf("TEST 1: memset\nown: %s\nsys: %s\n", str1, str2);
+	printf("TEST 1: memset\nown: %s\nsys: %s\nown: %s\nsys: %s\n", str1, str2, (char *) ft_memset(str1 + 3, '.', sizeof(char) * 5), (char *) memset(str2 + 3, '.', sizeof(char) * 5));
 	ft_memset(str1 + 5, 34, sizeof(char) * 2);
 	memset(str2 + 5, 34, sizeof(char) * 2);
-	printf("own: %s\nsys: %s\n\n", str1, str2);
+	printf("own: %s\nsys: %s\nown: %s\nsys: %s\n\n", str1, str2, (char*) ft_memset(str1 + 5, 34, sizeof(char) * 2), (char *) memset(str2 + 5, 34, sizeof(char) * 2));
 
 	/* BZERO TESTS */
 	ft_bzero(str1 + 8, sizeof(char) * 1);
@@ -187,6 +187,12 @@ int	main(void)
 	printf("Test 26: isprint\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\n\n", ft_isprint(-1), isprint(-1), ft_isprint(31), isprint(31), ft_isprint(199), isprint(199), ft_isprint(32), isprint(32), ft_isprint(126), isprint(126), ft_isprint(127), isprint(127));
 	printf("Test 27: toupper\nown: %c\nsys: %c\nown: %c\nsys: %c\nown: %c\nsys: %c\nown: %c\nsys: %c\nown: %c\nsys: %c\nown: %c\nsys: %c\nown: %c\nsys: %c\nown: %c\nsys: %c\nown: %c\nsys: %c\nown: %c\nsys: %c\n\n", ft_toupper(160), toupper(160), ft_toupper(0), toupper(0), ft_toupper(40), toupper(40), ft_toupper(50), toupper(50), ft_toupper(65), toupper(65), ft_toupper(75), toupper(75), ft_toupper(88), toupper(88), ft_toupper(97), toupper(97), ft_toupper(140), toupper(140), ft_toupper(122), toupper(122));
 	printf("Test 28: tolower\nown: %c\nsys: %c\nown: %c\nsys: %c\nown: %c\nsys: %c\nown: %c\nsys: %c\nown: %c\nsys: %c\nown: %c\nsys: %c\nown: %c\nsys: %c\nown: %c\nsys: %c\nown: %c\nsys: %c\nown: %c\nsys: %c\n\n", ft_tolower(160), tolower(160), ft_tolower(0), tolower(0), ft_tolower(40), tolower(40), ft_tolower(50), tolower(50), ft_tolower(65), tolower(65), ft_tolower(75), tolower(75), ft_tolower(88), tolower(88), ft_tolower(97), tolower(97), ft_tolower(140), tolower(140), ft_tolower(122), tolower(122));
+
+	/* MEMALLOC TESTS */
+	void	*s42 = ft_memalloc(10);
+	char	*s43 = ft_memalloc(10);
+
+	printf("TEST 29: memalloc\nshould be null: %s\nshould be null: %s\nshould be random: %s\n\nshould be null: %s\nshould be null: %s\nshould be random: %s\n\n", (char *) s42, (char *) (s42 + 9), (char *) (s42 + 10), s43, s43 + 9, s43 + 10);
 
 	return (0);
 }

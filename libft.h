@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 10:16:26 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/08 16:15:37 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/08 22:17:28 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,6 @@ int			ft_isascii(int c);
 int			ft_isprint(int c);
 int			ft_toupper(int c);
 int			ft_tolower(int c);
+void		*ft_memalloc(size_t size);
 
 #endif
