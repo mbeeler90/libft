@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbeeler <mbeeler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 10:16:26 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/05 16:34:25 by mbeeler          ###   ########.fr       */
+/*   Updated: 2021/11/08 16:15:37 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_btree		*btree_create_node(void *item);
 void		btree_insert_data(t_btree **root, void *item, \
 			int (*cmpf) (void *, void *));
 int			ft_any(char **tab, int (*f) (char*));
-int			ft_atoi(char *str);
+int			ft_atoi(const char *str);
 int			ft_count_if(char **tab, int (*f)(char*));
 t_list		*ft_create_elem(void *data);
 int			ft_fibonacci(int index);
@@ -59,14 +59,14 @@ void		ft_putnbr(int nb);
 void		ft_putstr(char *str);
 int			*ft_range(int min, int max);
 int			ft_sqrt(int nb);
-int			ft_strcmp(char *s1, char *s2);
+int			ft_strcmp(const char *s1, const char *s2);
 char		*ft_strcpy(char *dst, const char *src);
 char		*ft_strdup(const char *s1);
 size_t		ft_strlen(const char *s);
 char		*ft_strlowcase(char *str);
-int			ft_strncmp(char *s1, char *s2, unsigned int n);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
 char		*ft_strncpy(char *dst, const char *src, size_t len);
-char		*ft_strstr(char *str, char *to_find);
+char		*ft_strstr(const char *haystack, const char *needle);
 char		*ft_strupcase(char *str);
 void		ft_swap(int *a, int *b);
 int			ft_ultimate_range(int **range, int min, int max);
@@ -82,5 +82,14 @@ char		*ft_strcat(char *s1, const char *s2);
 char		*ft_strncat(char *s1, const char *s2, size_t n);
 size_t		ft_strlcat(char *dst, const char *src, size_t dstsize);
 char		*ft_strchr(const char *s, int c);
+char		*ft_strrchr(const char *s, int c);
+char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
+int			ft_isalpha(int c);
+int			ft_isdigit(int c);
+int			ft_isalnum(int c);
+int			ft_isascii(int c);
+int			ft_isprint(int c);
+int			ft_toupper(int c);
+int			ft_tolower(int c);
 
 #endif

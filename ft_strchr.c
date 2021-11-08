@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbeeler <mbeeler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 16:31:02 by mbeeler           #+#    #+#             */
-/*   Updated: 2021/11/05 16:39:50 by mbeeler          ###   ########.fr       */
+/*   Updated: 2021/11/08 11:10:55 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ char	*ft_strchr(const char *s, int c)
 	while (s[++i] != '\0')
 	{
 		if (s[i] == (char) c)
-			return (s + i);
-		i++;
+			return ((char *)(s + i));
 	}
 	return (NULL);
 }

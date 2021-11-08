@@ -6,11 +6,11 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 18:16:06 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/02 19:48:17 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/08 13:09:34 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int		i;
 	int		number;
