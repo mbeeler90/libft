@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 19:47:23 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/10 13:30:26 by manuelbeele      ###   ########.fr       */
+/*   Created: 2021/11/10 19:21:55 by manuelbeele       #+#    #+#             */
+/*   Updated: 2021/11/10 19:43:38 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+int ft_strequ(char const *s1, char const *s2)
 {
-	void	*ret;
-
-	ret = (void *) malloc(sizeof(ret) * size);
-	if (!ret)
-		return (NULL);
+	if (!s1 && !s2)
+		return (1);
+	else if (!s1 || !s2)
+		return (0);
+	else if (ft_strcmp(s1, s2) == 0)
+		return (1);
 	else
-		return (ft_memset(ret, 0, size));
+		return (0);
 }

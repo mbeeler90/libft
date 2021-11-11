@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 19:47:23 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/10 13:30:26 by manuelbeele      ###   ########.fr       */
+/*   Created: 2021/11/10 20:06:41 by manuelbeele       #+#    #+#             */
+/*   Updated: 2021/11/10 20:26:13 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	void	*ret;
+	char	*ret;
 
-	ret = (void *) malloc(sizeof(ret) * size);
-	if (!ret)
+	if (!s)
 		return (NULL);
-	else
-		return (ft_memset(ret, 0, size));
+	ret = ft_strnew(len);
+	if (ret)
+		ft_strncpy(ret, s + start, len);
+	return (ret);
 }

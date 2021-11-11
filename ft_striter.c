@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 19:47:23 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/10 13:30:26 by manuelbeele      ###   ########.fr       */
+/*   Created: 2021/11/10 15:51:27 by manuelbeele       #+#    #+#             */
+/*   Updated: 2021/11/10 16:25:03 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+void	ft_striter(char *s, void (*f)(char *))
 {
-	void	*ret;
+	int	i;
 
-	ret = (void *) malloc(sizeof(ret) * size);
-	if (!ret)
-		return (NULL);
-	else
-		return (ft_memset(ret, 0, size));
+	i = -1;
+	if (s && f)
+	{
+		while (s[++i] != '\0')
+			(*f) (&s[i]);
+	}
 }

@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 19:47:23 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/10 13:30:26 by manuelbeele      ###   ########.fr       */
+/*   Created: 2021/11/10 13:21:10 by manuelbeele       #+#    #+#             */
+/*   Updated: 2021/11/10 13:37:43 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+char	*ft_strnew(size_t size)
 {
-	void	*ret;
-
-	ret = (void *) malloc(sizeof(ret) * size);
-	if (!ret)
-		return (NULL);
-	else
-		return (ft_memset(ret, 0, size));
+	return ((char *) ft_memalloc(size + 1));
 }

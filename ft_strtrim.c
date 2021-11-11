@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 19:47:23 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/10 13:30:26 by manuelbeele      ###   ########.fr       */
+/*   Created: 2021/11/11 17:00:44 by manuelbeele       #+#    #+#             */
+/*   Updated: 2021/11/11 17:11:08 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+char	*ft_strtrim(char const *s)
 {
-	void	*ret;
+	unsigned int	i;
+	unsigned int	j;
+	unsigned int	len;
+	char			*ret;
 
-	ret = (void *) malloc(sizeof(ret) * size);
-	if (!ret)
-		return (NULL);
-	else
-		return (ft_memset(ret, 0, size));
+	if (s)
+	{
+		i = 0;
+		while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
+			i++;
+		j = ft_strlen(s) - 1;
+		while (s[j] == ' ' || s[j] == '\n' || s[j] == '\t')
+			j--;
+		len = j - i + 1;
+		ret = ft_strsub(s, i, len);
+		if (ret)
+			return (ret);
+	}
+	return (NULL);
 }

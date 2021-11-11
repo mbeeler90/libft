@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 10:00:20 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/08 22:15:24 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/11 17:17:23 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,33 @@
 #include <stdio.h>
 #include <strings.h>
 #include <ctype.h>
+
+void	iter_str(char *c)
+{
+	if (*c >= 'a' && *c <= 'z')
+		*c = 'x';
+}
+
+void	iter_stri(unsigned int i, char *c)
+{
+	if (*c >= 'a' && *c <= 'z')
+		*c = 'a' + i;
+}
+
+char	map_str(char c)
+{
+	if (c >= 'a' && c <= 'z')
+		c = 'x';
+	return (c);
+}
+
+char	map_stri(unsigned int i, char c)
+{
+	if (c >= 'a' && c <= 'z')
+		c = 'a' + i;
+	return (c);
+}
+
 
 int	main(void)
 {
@@ -192,7 +219,127 @@ int	main(void)
 	void	*s42 = ft_memalloc(10);
 	char	*s43 = ft_memalloc(10);
 
-	printf("TEST 29: memalloc\nshould be null: %s\nshould be null: %s\nshould be random: %s\n\nshould be null: %s\nshould be null: %s\nshould be random: %s\n\n", (char *) s42, (char *) (s42 + 9), (char *) (s42 + 10), s43, s43 + 9, s43 + 10);
+	printf("TEST 29: memalloc\nshould be null: %s\nshould be null: %s\nshould be random: %s\nshould be null: %c\nshould be null: %c\nshould be random: %c\n", (char *) s42, (char *) (s42 + 9), (char *) (s42 + 10), *s43, *(s43 + 9), *(s43 + 10));
+	int	i = -1;
+	while (++i < 5)
+		s43[i] = 'b';
+	printf("should be bbbbb: %s\nshould be address: %p\nshould be address: %p\n\n", s43, s42, s43);
+	
+	/* MEMDEL TESTS */
+	ft_memdel(&s42);
+	ft_memdel((void *) &s43);
+	printf("TEST 30: memdel\nshould be null: %s\nshould be null: %s\naddress should be gone: %p\naddress should be gone: %p\n\n", (char *) s42, s43, s42, s43);
+
+	/* STRNEW TESTS */
+	char	*s44 = ft_strnew(10);
+	char	*s45 = ft_strnew(10);
+
+	printf("TEST 31: strnew\nshould be null: %c\nshould be null: %c\nshould be random: %c\nshould be null: %c\nshould be null: %c\nshould be random: %c\n", *s44, *(s44 + 10), *(s44 + 11), *s45, *(s45 + 10), *(s45 + 11));
+	i = -1;
+	while (++i < 5)
+		s45[i] = 'b';
+	printf("should be bbbbb: %s\nshould be address: %p\nshould be address: %p\n\n", s45, s44, s45);
+	
+	/* STRDEL TESTS */
+	ft_strdel(&s44);
+	ft_strdel(&s45);
+	printf("TEST 31: strdel\nshould be null: %s\nshould be null: %s\naddress should be gone: %p\naddress should be gone: %p\n\n", s44, s45, s44, s45);
+
+	/* STRCLR TESTS */
+	char 	s47[] = "asdjfgsogijslkjnfsdfj ";
+	char	s46[] = "abcdefghijk";
+	
+	printf("TEST 32: strclr\nshould be abcdefghijk: %s\nshould be asdjfgsogijslkjnfsdfj : %s\n", s46, s47);
+	ft_strclr(s46);
+	ft_strclr(s47);
+	printf("should be null: %c\nshould be null: %s\nshould be null: %s\n\n", s46[0], s46, s47);
+
+	/* STRITER TESTS */
+	char 	s48[] = "ogi jslk jnfs dfj ";
+	char	s49[] = "abc4de3fg5hi!jk";
+	
+	ft_striter(s48, &iter_str);
+	ft_striter(s49, &iter_str);
+	printf("TEST 33: striter\nshould be xxx xxxx xxxx xxx : %s\nshould be xxx4xx3xx5xx!xx: %s\n\n", s48, s49);
+
+	/* STRITER TESTS */
+	char 	s50[] = "ogi jslk jnfs dfj ";
+	char	s51[] = "ggg4ss3hh5ss!ff";
+	
+	ft_striteri(s50, &iter_stri);
+	ft_striteri(s51, &iter_stri);
+	printf("TEST 34: striteri\nshould be abc efgh jklm opq : %s\nshould be abc4ef3hi5kl!no: %s\n\n", s50, s51);
+
+	/* STRMAP TESTS */
+	const char 	s52[] = "ogi jslk jnfs dfj ";
+	const char	s53[] = "ggg4ss3hh5ss!ff";
+	char		*s54 = ft_strmap(s52, &map_str);
+	char		*s55 = ft_strmap(s53, &map_str);
+
+	printf("TEST 35: strmap\nshould be ogi jslk jnfs dfj : %s\nshould be ggg4ss3hh5ss!ff: %s\nshould be xxx xxxx xxxx xxx : %s\nshould be xxx4xx3xx5xx!xx: %s\nshould be address: %p\nshoulb be address: %p\n", s52, s53, s54, s55, s54, s55);
+	ft_strdel(&s54);
+	ft_strdel(&s55);
+	printf("should be ogi jslk jnfs dfj : %s\nshould be ggg4ss3hh5ss!ff: %s\nshould be null: %s\nshould be null: %s\nno address: %p\nno address: %p\n\n", s52, s53, s54, s55, s54, s55);
+	
+	/* STRMAPI TESTS */
+	const char 	s56[] = "ogi jslk jnfs dfj ";
+	const char	s57[] = "ggg4ss3hh5ss!ff";
+	char		*s58 = ft_strmapi(s56, &map_stri);
+	char		*s59 = ft_strmapi(s57, &map_stri);
+
+	printf("TEST 36: strmapi\nshould be ogi jslk jnfs dfj : %s\nshould be ggg4ss3hh5ss!ff: %s\nshould be abc efgh jklm opq : %s\nshould be abc4ef3hi5kl!no: %s\nshould be address: %p\nshoulb be address: %p\n", s56, s57, s58, s59, s58, s59);
+	ft_strdel(&s58);
+	ft_strdel(&s59);
+	printf("should be ogi jslk jnfs dfj : %s\nshould be ggg4ss3hh5ss!ff: %s\nshould be null: %s\nshould be null: %s\nno address: %p\nno address: %p\n\n", s56, s57, s58, s59, s58, s59);
+
+	/* STREQU / STRNEQU TESTS */
+	const char 	s60[] = "Test is back!";
+	const char	s61[] = "Test is back!";
+	const char	s62[] = "Test is back! ";
+	const char	s63[] = "Test is back";
+	const char	s64[] = "";
+	const char	s65[] = "";
+	const char	s66[] = " Test is back!";
+
+	printf("TEST 36: strequ\nshould be 1: %d\nshould be 0: %d\nshould be 0: %d\nshould be 0: %d\nshould be 0: %d\nshould be 1: %d\n\n", ft_strequ(s60, s61), ft_strequ(s60, s62), ft_strequ(s60, s63), ft_strequ(s60, s64), ft_strequ(s60, s66), ft_strequ(s64, s65));
+	printf("TEST 37: strnequ\nshould be 1: %d\nshould be 1: %d\nshould be 0: %d\nshould be 0: %d\nshould be 0: %d\nshould be 1: %d\n\n", ft_strnequ(s60, s61, 30), ft_strnequ(s60, s62, 4), ft_strnequ(s60, s63, 40), ft_strnequ(s60, s64, 4), ft_strnequ(s60, s66, 4), ft_strnequ(s64, s65, 4));
+
+	/* STRSUB TESTS */
+	const char 	s67[] = "Test is back!";
+
+	printf("TEST 38: strsub\nshould be t is back! (may be undefined unless strncpy is used): %s\nshould be t is: %s\nshould be undefined: %s\n\n", ft_strsub(s67, 3, 20), ft_strsub(s67, 3, 4), ft_strsub(s67, 200, 20));
+	
+	/* STRJOIN TESTS */
+	const char 	s68[] = "Test is ";
+	const char 	s69[] = "BACK!";
+	const char 	s70[] = "";
+	const char 	s71[] = "Test is back!";
+	char		*s72;
+	char		*s73;
+	char		*s74;
+
+	s72 = ft_strjoin(s68, s69);
+	s73 = ft_strjoin(s70, s71);
+	s74 = ft_strjoin(s59, s71);
+	printf("TEST 39: strjoin\nshould be Test is BACK!: %s\nshould be Test is back!: %s\nshould be (null): %s\n", s72, s73, s74);
+	ft_strdel(&s72);
+	ft_strdel(&s74);
+	ft_strdel(&s73);
+	printf("should be (null): %s\nshould be (null): %s\nshould be (null): %s\nno address: %p\nno address: %p\nno address: %p\n\n", s72, s73, s74, s72, s73, s74);
+
+	/* STRTRIM TESTS */
+	const char 	s75[] = "  \n    \t This is a test!  \n  \t  ";
+	const char 	s76[] = "This is a test!";
+	char		*s77;
+	char		*s78;
+
+	s77 = ft_strtrim(s75);
+	s78 = ft_strtrim(s76);
+	printf("TEST 39: strjoin\nshould be This is a test!: %s\nshould be This is a test!: %s\n", s77, s78);
+	ft_strdel(&s77);
+	ft_strdel(&s78);
+	printf("should be (null): %s\nshould be (null): %s\nno address: %p\nno address: %p\n\n", s77, s78, s77, s78);
+
 
 	return (0);
 }
