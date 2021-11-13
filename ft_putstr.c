@@ -6,17 +6,14 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 18:35:57 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/02 20:04:54 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/12 16:47:47 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char *str)
+void	ft_putstr(char const *s)
 {
-	int	i;
-
-	i = -1;
-	while (str[++i] != '\0')
-		ft_putchar(str[i]);
+	if (s)
+		ft_putstr_fd(s, 1);
 }

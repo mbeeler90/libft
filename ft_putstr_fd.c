@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 10:13:18 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/12 13:37:31 by manuelbeele      ###   ########.fr       */
+/*   Created: 2021/11/12 16:32:00 by manuelbeele       #+#    #+#             */
+/*   Updated: 2021/11/12 16:36:08 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+void	ft_putstr_fd(char const *s, int fd)
 {
-	if (ap)
-	{
-		free(*ap);
-		*ap = 0;
-	}
+	if (s)
+		write(fd, s, ft_strlen(s));
 }

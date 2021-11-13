@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_strdelarray.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 10:13:18 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/12 13:37:31 by manuelbeele      ###   ########.fr       */
+/*   Created: 2021/11/12 13:41:48 by manuelbeele       #+#    #+#             */
+/*   Updated: 2021/11/12 14:04:06 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+void	ft_strdelarray(char **as)
 {
-	if (ap)
-	{
-		free(*ap);
-		*ap = 0;
-	}
+	ft_memdelarray((void **) as);
 }

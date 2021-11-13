@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 18:34:23 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/02 20:04:43 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/12 16:46:20 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar(char c)
 {
-	write (1, &c, 1);
+	ft_putchar_fd(c, 1);
 }

@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_memdelarray.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 10:13:18 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/12 13:37:31 by manuelbeele      ###   ########.fr       */
+/*   Created: 2021/11/12 13:42:18 by manuelbeele       #+#    #+#             */
+/*   Updated: 2021/11/12 14:12:42 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+void	ft_memdelarray(void **ap)
 {
-	if (ap)
+	unsigned int	i;
+
+	i = 0;
+	while (ap[i])
 	{
-		free(*ap);
-		*ap = 0;
+		ft_memdel(&ap[i]);
+		i++;
 	}
+	free(ap);
 }

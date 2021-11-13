@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 10:16:26 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/11 17:01:30 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/12 17:24:45 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ typedef struct s_btree
 
 typedef struct s_list
 {
+	void			*content;
+	size_t			content_size;
 	struct s_list	*next;
-	void			*data;
 }					t_list;
 
 void		btree_apply_infix(t_btree *root, void (*applyf) (void *));
@@ -55,8 +56,8 @@ int			ft_list_size(t_list *begin_list);
 int			*ft_map(int *tab, int length, int (*f) (int));
 void		ft_print_words_tables(char **table);
 void		ft_putchar(char c);
-void		ft_putnbr(int nb);
-void		ft_putstr(char *str);
+void		ft_putnbr(int n);
+void		ft_putstr(char const *s);
 int			*ft_range(int min, int max);
 int			ft_sqrt(int nb);
 int			ft_strcmp(const char *s1, const char *s2);
@@ -105,5 +106,15 @@ int			ft_strnequ(char const *s1, char const *s2, size_t n);
 char		*ft_strsub(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strtrim(char const *s);
+char		**ft_strsplit(char const *s, char c);
+void		ft_memdelarray(void **ap);
+void		ft_strdelarray(char **as);
+char		*ft_itoa(int n);
+void		ft_putendl(char const *s);
+void		ft_putchar_fd(char c, int fd);
+void		ft_putstr_fd(char const *s, int fd);
+void		ft_putendl_fd(char const *s, int fd);
+void		ft_putnbr_fd(int n, int fd);
+t_list		*ft_lstnew(void const *content, size_t content_size);
 
 #endif

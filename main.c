@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 10:00:20 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/11 17:17:23 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/12 16:55:10 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,36 @@ char	map_stri(unsigned int i, char c)
 
 int	main(void)
 {
+	/* PUTCHAR / PUTSTR TESTS */
+
+	ft_putstr("TEST: putchar\n");
+	ft_putchar('o');
+	ft_putchar_fd('k', 1);
+	ft_putchar('\n');
+	ft_putchar_fd('\n', 1);
+	ft_putstr_fd("TEST: putstr\n", 1);
+	ft_putstr("putstr is ok\n\n");
+
+	ft_putendl("TEST: putendl");
+	ft_putendl_fd("Should have 1 empty line after statement.\n", 1);
+
+	ft_putendl("TEST: putnbr");
+	ft_putstr_fd("should show -2147483648: ", 1);
+	ft_putnbr(-2147483648);
+	ft_putchar_fd('\n', 1);
+	ft_putstr("should show -99: ");
+	ft_putnbr_fd(-99, 1);
+	ft_putchar('\n');
+	ft_putstr_fd("should show 0: ", 1);
+	ft_putnbr(0);
+	ft_putchar('\n');
+	ft_putstr("should show 2000: ");
+	ft_putnbr(2000);
+	ft_putchar_fd('\n',1);
+	ft_putstr_fd("should show 2147483647: ", 1);
+	ft_putnbr_fd(2147483647, 1);
+	ft_putendl("\n");
+
 	/* MEMSET TESTS */
 	char	str1[] = "This is a_test!";
 	char	str2[] = "This is a_test!";
@@ -340,6 +370,81 @@ int	main(void)
 	ft_strdel(&s78);
 	printf("should be (null): %s\nshould be (null): %s\nno address: %p\nno address: %p\n\n", s77, s78, s77, s78);
 
+	/* STRSPLIT TESTS */
+	const char 	s79[] = "***This**is**a*test!*";
+	const char 	s80[] = "this is a test!";
+	const char	s81[] = "";
+	char		**s82;
+	char		**s83;
+	char		**s84;
+	char		**s85;
+	char		**s86;
+
+	s82 = ft_strsplit(s79, '*');
+	s83 = ft_strsplit(s80, ' ');
+	s84 = ft_strsplit(s81, 'f');
+	s85 = ft_strsplit(s80, 't');
+	s86 = ft_strsplit(s72, 'c');
+	printf("TEST 40: strsplit\nshould be This is a test! : ");
+	i = 0;
+	while (s82[i])
+	{
+		printf("%s ", s82[i]);
+		i++;
+	}
+	printf("\nshould be this is a test! : ");
+	i = 0;
+	while (s83[i])
+	{
+		printf("%s ", s83[i]);
+		i++;
+	}
+	printf("\nshould be empty: ");
+	i = 0;
+	while (s84[i])
+	{
+		printf("%s ", s84[i]);
+		i++;
+	}
+	printf("\nshould be his is a  es ! : ");
+	i = 0;
+	while (s85[i])
+	{
+		printf("%s ", s85[i]);
+		i++;
+	}
+	printf("\nshould be empty: ");
+	while (s86)
+	{
+		printf("%s ", *s86);
+		s86++;
+	}
+	ft_strdelarray(s82);
+	ft_strdelarray(s83);
+	ft_strdelarray(s84);
+	ft_strdelarray(s85);
+	s85 = NULL;
+	s82 = NULL;
+	s83 = NULL;
+	s84 = NULL;
+	printf("\nno address: %p\nno address: %p\nno address: %p\nno address: %p\n\n", s82, s83, s84, s85);
+	
+	/* ITOA TESTS */
+	char	*s92;
+	char	*s91;
+	char	*s87;
+	char	*s88;
+	char	*s89;
+	char	*s90;
+
+	s91 = ft_itoa(-2147483648);
+	s92 = ft_itoa(-9999);
+	s87 = ft_itoa(0);
+	s88 = ft_itoa(9);
+	s89 = ft_itoa(100);
+	s90 = ft_itoa(2147483647);
+
+	printf("TEST 40: itoa\nshould be -2147483648: %s\nshould be -9999: %s\nshould be 0: %s\nshould be 9: %s\nshould be 100: %s\nshould be 2147483647: %s\n\n", s91, s92, s87, s88, s89, s90);
 
 	return (0);
 }

@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 10:13:18 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/12 13:37:31 by manuelbeele      ###   ########.fr       */
+/*   Created: 2021/11/12 17:23:44 by manuelbeele       #+#    #+#             */
+/*   Updated: 2021/11/12 20:36:07 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	if (ap)
-	{
-		free(*ap);
-		*ap = 0;
-	}
+	t_list	*tmp;
+
+	tmp = (t_list *)malloc(sizeof(*tmp));
+	if (!tmp)
+		return (NULL);
+	if (!content)
+		tmp->content = NULL;
+	else
+		tmp->content = malloc(sizeof(void const) * (content_size + 1));
+		ft_memcpy(tmp->content, content, content_size);
+	tmp->content_size = content_size;
+	tmp->next = NULL;
+	return (tmp);
 }
