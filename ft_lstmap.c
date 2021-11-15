@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 17:27:24 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/15 19:25:47 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/15 19:27:56 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ t_list	*ft_lstmap(t_list *lst, t_list * (*f)(t_list *elem))
 	if (!lst || !f)
 		return (NULL);
 	new_element = (*f)(lst);
+	if (!new_element)
+		return (NULL);
 	lst = lst->next;
 	head = new_element;
 	while (lst)
