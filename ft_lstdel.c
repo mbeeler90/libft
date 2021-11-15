@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 10:13:18 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/15 14:32:28 by manuelbeele      ###   ########.fr       */
+/*   Created: 2021/11/15 16:48:10 by manuelbeele       #+#    #+#             */
+/*   Updated: 2021/11/15 16:54:32 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	if (*ap)
-	{
-		free(*ap);
-		*ap = NULL;
-	}
+	t_list	*next_element;
+
+	if (*del)
+		while (*alst)
+		{
+			next_element = (*alst)->next;
+			ft_lstdelone(alst, del);
+			*alst = next_element;
+		}
 }

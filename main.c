@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 10:00:20 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/12 16:55:10 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/15 17:17:47 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -445,6 +445,21 @@ int	main(void)
 	s90 = ft_itoa(2147483647);
 
 	printf("TEST 40: itoa\nshould be -2147483648: %s\nshould be -9999: %s\nshould be 0: %s\nshould be 9: %s\nshould be 100: %s\nshould be 2147483647: %s\n\n", s91, s92, s87, s88, s89, s90);
+
+	/* LSTNEW / LSTDELONE / LSTDEL TESTS */
+	char const	s93[] = "Test!";
+	void const	*s94;
+	t_list		*l1;
+	t_list		*l2;
+
+	s94 = "Test!";
+	l1 = ft_lstnew(s93, sizeof(char) * 5);
+	l2 = ft_lstnew(s94, sizeof(void) * 5);
+	printf("TEST 41: LSTNEW\nshould be Test!: %s\nshould be Test!: %s\nshould be address: %p\nshould be address: %p\nshould be address: %p\nshould be address: %p\nshould be 5: %d\nshould be 5: %d\n\n", (char *) l1->content, (char *) l2->content, l1, l2, l1->content, l2->content, (int) l1->content_size, (int) l2->content_size);
+
+	ft_lstadd(&l1, l2);
+	ft_lstdel(&l1, &ft_lstclearelem);
+	//printf("TEST 42: LSTDELONE\nshould be (null): %s\nshould be Test!: %s\nshould be (null): %p\nshould be address: %p\nshould be (null): %p\nshould be address: %p\nshould be 0: %d\nshould be 5: %d\n\n", (char *) l1->content, (char *) l2->content, l1, l2, l1->content, l2->content, (int) l1->content_size, (int) l2->content_size);
 
 	return (0);
 }
