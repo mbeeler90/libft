@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 10:00:20 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/17 13:06:15 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/17 17:52:46 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,12 +192,12 @@ int	main(void)
 	char		s18[10] = "Start: ";
 	char		s18_1[10] = "Start: ";
 	const char	s19[] = "This is a test!";
-	char		s20[0] = "";
-	char		s21[0] = "";
-	char		s22[3] = "ab";
-	char		s23[3] = "ab";
+	char		s20[1] = "";
+	char		s21[1] = "";
+	char		s22[4] = "ab";
+	char		s23[4] = "ab";
 
-	printf("TEST 14: strlcat\nown: %s\nsys: %s\nown: %lu\nsys: %lu\nown: %s\nsys: %s\nown: %lu\nsys: %lu\nown: %s\nsys: %s\nown: %lu\nsys: %lu\n\n", s18, s18_1, ft_strlcat(s18, s19, 10), strlcat(s18_1, s19, 10), s20, s21, ft_strlcat(s20, s19, 0), strlcat(s21, s19, 0), s22, s23, ft_strlcat(s22, s19, 3), strlcat(s23, s19, 3));
+	printf("TEST 14: strlcat\nown: %s\nsys: %s\nown: %lu\nsys: %lu\nown: %s\nsys: %s\nown: %lu\nsys: %lu\nown: %s\nsys: %s\nown: %lu\nsys: %lu\n\n", s18, s18_1, ft_strlcat(s18, s19, 10), strlcat(s18_1, s19, 10), s20, s21, ft_strlcat(s20, s19, 1), strlcat(s21, s19, 1), s22, s23, ft_strlcat(s22, s19, 3), strlcat(s23, s19, 3));
 	
 	/* STRCHR / STRRCHR TESTS */
 	const char	s24[] = "This is another test!";
@@ -249,7 +249,7 @@ int	main(void)
 	void	*s42 = ft_memalloc(10);
 	char	*s43 = ft_memalloc(10);
 
-	printf("TEST 29: memalloc\nshould be null: %s\nshould be null: %s\nshould be random: %s\nshould be null: %c\nshould be null: %c\nshould be random: %c\n", (char *) s42, (char *) (s42 + 9), (char *) (s42 + 10), *s43, *(s43 + 9), *(s43 + 10));
+	printf("TEST 29: memalloc\nshould be empty: %s\nshould be empty: %s\nshould be random: %s\nshould be EOW: %c\nshould be EOW: %c\nshould be random: %c\n", (char *) s42, (char *) (s42 + 9), (char *) (s42 + 10), *s43, *(s43 + 9), *(s43 + 10));
 	int	i = -1;
 	while (++i < 5)
 		s43[i] = 'b';
@@ -264,7 +264,7 @@ int	main(void)
 	char	*s44 = ft_strnew(10);
 	char	*s45 = ft_strnew(10);
 
-	printf("TEST 31: strnew\nshould be null: %c\nshould be null: %c\nshould be random: %c\nshould be null: %c\nshould be null: %c\nshould be random: %c\n", *s44, *(s44 + 10), *(s44 + 11), *s45, *(s45 + 10), *(s45 + 11));
+	printf("TEST 31: strnew\nshould be EOW: %c\nshould be EOW: %c\nshould be random: %c\nshould be EOW: %c\nshould be EOW: %c\nshould be random: %c\n", *s44, *(s44 + 10), *(s44 + 11), *s45, *(s45 + 10), *(s45 + 11));
 	i = -1;
 	while (++i < 5)
 		s45[i] = 'b';
@@ -282,7 +282,7 @@ int	main(void)
 	printf("TEST 32: strclr\nshould be abcdefghijk: %s\nshould be asdjfgsogijslkjnfsdfj : %s\n", s46, s47);
 	ft_strclr(s46);
 	ft_strclr(s47);
-	printf("should be null: %c\nshould be null: %s\nshould be null: %s\n\n", s46[0], s46, s47);
+	printf("should be EOW: %c\nshould be empty: %s\nshould be empty: %s\n\n", s46[0], s46, s47);
 
 	/* STRITER TESTS */
 	char 	s48[] = "ogi jslk jnfs dfj ";
@@ -489,9 +489,7 @@ int	main(void)
 	ft_lstdel(&l6, &ft_lstclearelem);
 	l4 = NULL;
 	l5 = NULL;
-	printf("TEST 46: LSTADD\nshould be (null): %p\nshould be (null): %p\nshould be (null): %p\nshould be (null): %p\n\n", l3, l4, l5, l6);
-
-
+	printf("TEST 46: LSTDEL\nshould be (null): %p\nshould be (null): %p\nshould be (null): %p\nshould be (null): %p\n\n", l3, l4, l5, l6);
 
 	return (0);
 }
