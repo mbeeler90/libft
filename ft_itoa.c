@@ -6,13 +6,13 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 14:30:37 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/12 15:42:16 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/17 13:45:00 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_check_neg(int *n, int *sign)
+int	ft_check_neg(int *n, int *sign)
 {
 	if (*n < 0)
 	{
@@ -28,6 +28,19 @@ int		ft_check_neg(int *n, int *sign)
 	return (*n);
 }
 
+int	ft_measure_length(int n)
+{
+	int	len;
+
+	len = 0;
+	while (n > 9)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
+
 char	*ft_itoa(int n)
 {
 	int		len;
@@ -35,11 +48,9 @@ char	*ft_itoa(int n)
 	int		n2;
 	char	*ret;
 
-	len = 1;
 	sign = 0;
-	n2 = ft_check_neg(&n, &sign);
-	while ((n /= 10) > 0)
-		len++;
+	ft_check_neg(&n, &sign);
+	len = ft_measure_length(n) + 1;
 	len += sign;
 	ret = ft_strnew((size_t) len);
 	if (!ret)
@@ -47,8 +58,8 @@ char	*ft_itoa(int n)
 	ret[len] = '\0';
 	while (--len >= sign)
 	{
-		ret[len] = '0' + (n2 % 10);
-		n2 /= 10;
+		ret[len] = '0' + (n % 10);
+		n /= 10;
 	}
 	if (sign > 0)
 		ret[0] = '-';

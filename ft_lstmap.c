@@ -6,13 +6,13 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 17:27:24 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/17 11:12:00 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/17 13:32:40 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, t_list * (*f)(t_list *elem))
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list	*head;
 	t_list	*new_element;

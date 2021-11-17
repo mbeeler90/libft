@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 16:16:34 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/10 16:35:01 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/17 13:30:32 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	{
 		while (s[i] != '\0')
 		{
-			(*f) (i, &s[i]);
+			(*f)(i, &s[i]);
 			i++;
 		}
 	}
