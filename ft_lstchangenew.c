@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstchangenew.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 14:09:34 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/17 13:17:07 by manuelbeele      ###   ########.fr       */
+/*   Created: 2021/11/17 11:23:00 by manuelbeele       #+#    #+#             */
+/*   Updated: 2021/11/17 11:26:05 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+t_list	*ft_lstchangenew(t_list *lst)
 {
-	size_t	i;
-	char	*str1;
-	char	*str2;
+	t_list	*ret;
 
-	i = 0;
-	str1 = (char *) src;
-	str2 = (char *) dst;
-	while (i < n)
-	{
-		str2[i] = str1[i];
-		if (str1[i] == (char) c)
-		{
-			i++;
-			str2[i] = '\0';
-			return (dst + i + 1);
-		}
-		i++;
-	}
-	str2[i] = '\0';
-	return (NULL);
+	ret = ft_lstnew(lst->content, lst->content_size);
+	ft_memset(ret->content, '!', 2);
+	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 10:00:20 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/15 17:17:47 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/17 13:06:15 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -447,19 +447,51 @@ int	main(void)
 	printf("TEST 40: itoa\nshould be -2147483648: %s\nshould be -9999: %s\nshould be 0: %s\nshould be 9: %s\nshould be 100: %s\nshould be 2147483647: %s\n\n", s91, s92, s87, s88, s89, s90);
 
 	/* LSTNEW / LSTDELONE / LSTDEL TESTS */
-	char const	s93[] = "Test!";
+	char const	s93[] = "Test";
 	void const	*s94;
 	t_list		*l1;
 	t_list		*l2;
 
-	s94 = "Test!";
-	l1 = ft_lstnew(s93, sizeof(char) * 5);
+	s94 = "Test1";
+	l1 = ft_lstnew(s93, sizeof(char) * 4);
 	l2 = ft_lstnew(s94, sizeof(void) * 5);
-	printf("TEST 41: LSTNEW\nshould be Test!: %s\nshould be Test!: %s\nshould be address: %p\nshould be address: %p\nshould be address: %p\nshould be address: %p\nshould be 5: %d\nshould be 5: %d\n\n", (char *) l1->content, (char *) l2->content, l1, l2, l1->content, l2->content, (int) l1->content_size, (int) l2->content_size);
+	printf("TEST 41: LSTNEW\nshould be Test: %s\nshould be Test1: %s\nshould be address: %p\nshould be address: %p\nshould be address: %p\nshould be address: %p\nshould be 4: %d\nshould be 5: %d\n\n", (char *) l1->content, (char *) l2->content, l1, l2, l1->content, l2->content, (int) l1->content_size, (int) l2->content_size);
 
-	ft_lstadd(&l1, l2);
-	ft_lstdel(&l1, &ft_lstclearelem);
-	//printf("TEST 42: LSTDELONE\nshould be (null): %s\nshould be Test!: %s\nshould be (null): %p\nshould be address: %p\nshould be (null): %p\nshould be address: %p\nshould be 0: %d\nshould be 5: %d\n\n", (char *) l1->content, (char *) l2->content, l1, l2, l1->content, l2->content, (int) l1->content_size, (int) l2->content_size);
+	ft_lstdelone(&l1, &ft_lstclearelem);
+	ft_lstdelone(&l2, &ft_lstclearelem);
+
+	printf("TEST 42: LSTDELONE\nshould be (null): %p\nshould be (null): %p\n\n", l1, l2);
+
+	/* LSTDEL / LSTDELONE / LSTDEL TESTS */
+	char const	s96[] = "Test";
+	void const	*s95;
+	char const	s97[] = "Test2";
+	t_list		*l3;
+	t_list		*l4;
+	t_list		*l5;
+	t_list		*l6;
+
+	s95 = "Test1";
+	l3 = ft_lstnew(s96, sizeof(char) * 4);
+	l4 = ft_lstnew(s95, sizeof(void) * 5);
+	ft_lstadd(&l3, l4);
+	l5 = ft_lstnew(s97, sizeof(char) * 5);
+	ft_lstadd(&l3, l5);
+	printf("TEST 43: LSTADD\nshould be Test2: %s\nshould be Test1: %s\nshould be Test2: %s\nshould be Test1: %s\nshould be test: %s\nshould be address: %p\nshould be same address: %p\nshould be address: %p\nshould be same address: %p\nshould be different address: %p\nshould be address: %p\nshould be same address: %p\nshould be address: %p\nshould be same address: %p\nshould be different address: %p\nshould be 5: %d\nshould be 5: %d\nshould be 5: %d\nshould be 5: %d\nshould be 4: %d\n\n", (char *) l3->content, (char *) l4->content, (char *) l5->content, (char *) l3->next->content, (char *) l3->next->next->content, l3, l5, l4, l3->next, l3->next->next, l3->content, l5->content, l4->content, l3->next->content, l3->next->next->content, (int) l3->content_size, (int) l4->content_size, (int) l5->content_size, (int) l3->next->content_size, (int) l3->next->next->content_size);
+	
+	ft_lstiter(l3, &ft_lstchange);
+	printf("TEST 44: LSTITER\nshould be ***t2: %s\nshould be ***t1: %s\nshould be ***t: %s\n\n", (char *) l3->content, (char *) l3->next->content, (char *) l3->next->next->content);
+	
+	l6 = ft_lstmap(l3, &ft_lstchangenew);
+	printf("TEST 45: LSTMAP\nshould be ***t2: %s\nshould be ***t1: %s\nshould be ***t: %s\nshould be !!*t2: %s\nshould be !!*t1: %s\nshould be !!*t: %s\nshould be address: %p\nshould be different address: %p\nshould be different address: %p\nshould be address: %p\nshould be different address: %p\nshould be different address: %p\nshould be address: %p\nshould be different address: %p\nshould be 5: %d\nshould be 5: %d\nshould be 4: %d\nshould be 5: %d\nshould be 5: %d\nshould be 4: %d\n\n", (char *) l3->content, (char *) l3->next->content, (char *) l3->next->next->content, (char *) l6->content, (char *) l6->next->content, (char *) l6->next->next->content, l3, l3->next, l3->next->next, l6, l6->next, l6->next->next, l3->content, l6->content, (int) l3->content_size, (int) l3->next->content_size, (int) l3->next->next->content_size, (int) l6->content_size, (int) l6->next->content_size, (int) l6->next->next->content_size);
+	
+	ft_lstdel(&l3, &ft_lstclearelem);
+	ft_lstdel(&l6, &ft_lstclearelem);
+	l4 = NULL;
+	l5 = NULL;
+	printf("TEST 46: LSTADD\nshould be (null): %p\nshould be (null): %p\nshould be (null): %p\nshould be (null): %p\n\n", l3, l4, l5, l6);
+
+
 
 	return (0);
 }
