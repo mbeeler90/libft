@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 14:30:37 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/17 13:45:00 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/17 16:30:15 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ char	*ft_itoa(int n)
 {
 	int		len;
 	int		sign;
-	int		n2;
 	char	*ret;
 
 	sign = 0;

@@ -6,7 +6,7 @@
 #    By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 20:12:34 by manuelbeele       #+#    #+#              #
-#    Updated: 2021/11/17 16:18:09 by manuelbeele      ###   ########.fr        #
+#    Updated: 2021/11/17 16:32:03 by manuelbeele      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,13 @@ SRCS += ./btree_apply_prefix.c
 SRCS += ./btree_apply_suffix.c
 SRCS += ./btree_create_node.c
 SRCS += ./btree_insert_data.c
-SRCS = ./ft_any.c
+SRCS += ./ft_any.c
 SRCS += ./ft_atoi.c
 SRCS += ./ft_bzero.c
 SRCS += ./ft_count_if.c
 SRCS += ./ft_create_elem.c
 SRCS += ./ft_fibonacci.c
-SRCS = ./ft_find_next_prime.c
+SRCS += ./ft_find_next_prime.c
 SRCS += ./ft_foreach.c
 SRCS += ./ft_is_prime.c
 SRCS += ./ft_is_sort.c
@@ -38,11 +38,13 @@ SRCS += ./ft_list_last.c
 SRCS += ./ft_list_push_back.c
 SRCS += ./ft_list_push_front.c
 SRCS += ./ft_list_push_params.c
-SRCS = ./ft_list_size.c
+SRCS += ./ft_list_size.c
 SRCS += ./ft_lstadd.c
 SRCS += ./ft_lstchange.c
 SRCS += ./ft_lstchangenew.c
 SRCS += ./ft_lstclearelem.c
+SRCS += ./ft_lstdel.c
+SRCS += ./ft_lstdelone.c
 SRCS += ./ft_lstiter.c
 SRCS += ./ft_lstmap.c
 SRCS += ./ft_lstnew.c
@@ -64,7 +66,7 @@ SRCS += ./ft_putendl.c
 SRCS += ./ft_putnbr_fd.c
 SRCS += ./ft_putnbr.c
 SRCS += ./ft_putstr_fd.c
-SRCS = ./ft_putstr.c
+SRCS += ./ft_putstr.c
 SRCS += ./ft_range.c
 SRCS += ./ft_split_whitespaces.c
 SRCS += ./ft_sqrt.c
@@ -72,7 +74,7 @@ SRCS += ./ft_strcat.c
 SRCS += ./ft_strchr.c
 SRCS += ./ft_strclr.c
 SRCS += ./ft_strcmp.c
-SRCS = ./ft_strcpy.c
+SRCS += ./ft_strcpy.c
 SRCS += ./ft_strdel.c
 SRCS += ./ft_strdelarray.c
 SRCS += ./ft_strdup.c
@@ -87,7 +89,7 @@ SRCS += ./ft_strmap.c
 SRCS += ./ft_strmapi.c
 SRCS += ./ft_strncat.c
 SRCS += ./ft_strncmp.c
-SRCS = ./ft_strncpy.c
+SRCS += ./ft_strncpy.c
 SRCS += ./ft_strnequ.c
 SRCS += ./ft_strnew.c
 SRCS += ./ft_strnstr.c
@@ -111,14 +113,14 @@ FLAGS = -Wall -Wextra -Werror -c
 all: $(NAME)
 
 %.o: %.c
-	$(CC) $(FLAGS) $@ $<
+	$(CC) $(FLAGS) $<
 
 $(NAME): $(OBJECTS)
 	ar rc $(NAME) $(OBJECTS)
 	ranlib $(NAME)
 
 clean:
-	rm -f $(OBJECTS)
+	rm -f *.o
 
 fclean: clean
 	rm -f $(NAME)
