@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 20:06:41 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/10 20:26:13 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/19 13:08:32 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	ret = ft_strnew(len);
 	if (ret)
+	{
 		ft_strncpy(ret, s + start, len);
+		ret[len] = '\0';
+	}
 	return (ret);
 }

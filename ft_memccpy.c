@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:09:34 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/17 13:17:07 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/18 20:24:39 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	char	*str1;
 	char	*str2;
 
+	if ((n == 0) || !dst || !src)
+		return (NULL);
 	i = 0;
 	str1 = (char *) src;
 	str2 = (char *) dst;
@@ -25,13 +27,8 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	{
 		str2[i] = str1[i];
 		if (str1[i] == (char) c)
-		{
-			i++;
-			str2[i] = '\0';
 			return (dst + i + 1);
-		}
 		i++;
 	}
-	str2[i] = '\0';
 	return (NULL);
 }

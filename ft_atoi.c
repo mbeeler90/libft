@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 18:16:06 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/08 13:09:34 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/19 11:45:39 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,7 @@ int	ft_atoi(const char *str)
 		if (str[i++] == '-')
 			sign = -1;
 	}
-	while (str[i] != '\0')
-	{
-		if (str[i] >= '0' && str[i] <= '9')
-			number = number * 10 + str[i++] - '0';
-		else
-			return (sign * number);
-	}
+	while (str[i] >= '0' && str[i] <= '9')
+		number = number * 10 + str[i++] - '0';
 	return (sign * number);
 }

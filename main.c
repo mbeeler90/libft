@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 10:00:20 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/17 17:52:46 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/19 14:36:10 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,40 +95,66 @@ int	main(void)
 
 	/* MEMCPY TESTS */
 	const char	src1[] = "This is another test!";
-	char		dest1[50];
+	char		dest1[50] = "xxxxxxxxxxxxxxxxxxxxxxxx";
 	const char	src2[] = "This is another test!";
-	char		dest2[50];
+	char		dest2[50] = "xxxxxxxxxxxxxxxxxxxxxxxx";
+	const char	src2_1[] = "This is another teeeeeeeeeeeeeeeeeeeeest!";
 
 	printf("TEST 3: memcpy\nown: %s\n", (char *) ft_memcpy(dest1, src1, 12));
 	printf("sys: %s\n", (char *) memcpy(dest2, src2, 12));
-	printf("own: %s\nsys: %s\nThere should be no undefined behavior at the end of the string (end with \\0)\n\n", dest1, dest2);
-
+	printf("own: %s\n", (char *) ft_memcpy("ab", src2, 0));
+	printf("sys: %s\n", (char *) memcpy("ab", src2, 0));
+	printf("own: %s\n", (char *) ft_memcpy(NULL, NULL, 0));
+	printf("sys: %s\n", (char *) memcpy(NULL, NULL, 0));
+	printf("own: %s\n", (char *) ft_memcpy(NULL, src2, 0));
+	printf("sys: %s\n", (char *) memcpy(NULL, src2, 0));
+	printf("own: %s\n", (char *) ft_memcpy(dest1, NULL, 0));
+	printf("sys: %s\n", (char *) memcpy(dest2, NULL, 0));
+	printf("own: %s\n", (char *) ft_memcpy(dest1, src2_1, 30));
+	printf("sys: %s\n", (char *) memcpy(dest2, src2_1, 30));
+	printf("own: %s\nsys: %s\n\n", dest1, dest2);
+	
 	/* MEMCCPY TESTS */
 	const char	src3[] = "This iso another test!";
-	char		dest3[50];
+	char		dest3[50] = "xxxxxxxxxxxxxxxxxxxxxxxxxxx";
 	char		dest5[50];
 	const char	src4[] = "This iso another test!";
-	char		dest4[50];
+	char		dest4[50] = "xxxxxxxxxxxxxxxxxxxxxxxxxxx";
 	char		dest6[50];
 
-	ft_memccpy(dest3, src3, 'o', 12);
-	memccpy(dest4, src4, 'o', 12);
-	ft_memccpy(dest5, src3, 'x', 12);
-	memccpy(dest6, src4, 'x', 12);
-	printf("TEST 4: memccpy\nown: %s\nsys: %s\nown: %s\nsys: %s\nThere should be no undefined behavior at the end of the string (end with \\0)\n\n", dest3, dest4, dest5, dest6);
+	printf("TEST 4: memccpy\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\n", (char *) ft_memccpy(dest3, src3, 'o', 12), (char *) memccpy(dest4, src4, 'o', 12), (char *) ft_memccpy(dest5, src3, 'x', 12), (char *) memccpy(dest6, src4, 'x', 12), dest3, dest4, dest5, dest6);
+	printf("own: %s\n", (char *) ft_memccpy(NULL, NULL, 'x', 0));
+	printf("sys: %s\n", (char *) memccpy(NULL, NULL, 'x', 0));
+	printf("own: %s\n", (char *) ft_memccpy(NULL, src2_1, 'x', 0));
+	printf("sys: %s\n", (char *) memccpy(NULL, src2_1, 'x', 0));
+	printf("own: %s\n", (char *) ft_memccpy(dest3, NULL, 'x', 0));
+	printf("sys: %s\n", (char *) memccpy(dest4, NULL, 'x', 0));
+	printf("own: %s\n", (char *) ft_memccpy(dest3, src2_1, 'x', 30));
+	printf("sys: %s\n", (char *) memccpy(dest4, src2_1, 'x', 30));
+	printf("\n\n");
 
 	/* MEMMOVE TESTS */
 	char	src5[50] = "Repeat!";
 	char	src6[50] = "Repeat!";
 	char	src7[50] = "Repeat!";
-
+	char	src7_1[50] = "This is a test!";
+	char	src7_2[50] = "This is a test!";
+	
 	ft_memmove((src5 + 2), src5, 7);
 	memmove((src6 + 2), src6, 7);
 	ft_memcpy((src7 + 2), src7, 7);
 	printf("TEST 5: memmove\nown: %s\nsys: %s\nmemcpy (should override): %s\n", src5, src6, src7);
 	ft_memmove(src5, (src5 + 2), 7);
 	memmove(src6, (src6 + 2), 7);
-	printf("own: %s\nsys: %s\nThere should be nothing after Repeat! (string should end with \\0)\n\n", src5, src6);
+	printf("own: %s\n", (char *) ft_memmove(NULL, NULL, 3));
+	printf("sys: %s\n", (char *) memmove(NULL, NULL, 3));
+	printf("own: %s\n", (char *) ft_memmove(NULL, src7_2, 0));
+	printf("sys: %s\n", (char *) memmove(NULL, src7_2, 0));
+	printf("own: %s\n", (char *) ft_memmove(src7_1, NULL, 0));
+	printf("sys: %s\n", (char *) memmove(src7_2, NULL, 0));
+	printf("own: %s\n", (char *) ft_memmove(src7_1, src7, 6));
+	printf("sys: %s\n", (char *) memmove(src7_2, src7, 6));
+	printf("own: %s\nsys: %s\n\n", src5, src6);
 
 	/* MEMCHR TESTS */
 	const char	s1[] = "This iso another test!";
@@ -196,24 +222,32 @@ int	main(void)
 	char		s21[1] = "";
 	char		s22[4] = "ab";
 	char		s23[4] = "ab";
+	char 		*str_x = "the cake is a lie !\0I'm hidden lol\r\n";
+	char 		buff1[0xF00] = "there is no stars in the sky";
+	char 		buff2[0xF00] = "there is no stars in the sky";
+	size_t 		max = strlen("the cake is a lie !\0I'm hidden lol\r\n") + 4;
+	size_t 		r1 = __builtin___strlcat_chk (buff1, str_x, max, __builtin_object_size (buff1, 2 > 1 ? 1 : 0));
+	size_t 		r2 = ft_strlcat(buff2, str_x, max);
 
-	printf("TEST 14: strlcat\nown: %s\nsys: %s\nown: %lu\nsys: %lu\nown: %s\nsys: %s\nown: %lu\nsys: %lu\nown: %s\nsys: %s\nown: %lu\nsys: %lu\n\n", s18, s18_1, ft_strlcat(s18, s19, 10), strlcat(s18_1, s19, 10), s20, s21, ft_strlcat(s20, s19, 1), strlcat(s21, s19, 1), s22, s23, ft_strlcat(s22, s19, 3), strlcat(s23, s19, 3));
+	printf("TEST 14: strlcat\nown: %s\nsys: %s\nown: %lu\nsys: %lu\nown: %s\nsys: %s\nown: %lu\nsys: %lu\nown: %s\nsys: %s\nown: %lu\nsys: %lu\nown: %lu\nsys: %lu\nown: %s\nsys: %s\n\n", s18, s18_1, ft_strlcat(s18, s19, 10), strlcat(s18_1, s19, 10), s20, s21, ft_strlcat(s20, s19, 1), strlcat(s21, s19, 1), s22, s23, ft_strlcat(s22, s19, 3), strlcat(s23, s19, 3), r2, r1, buff2, buff1);
 	
 	/* STRCHR / STRRCHR TESTS */
 	const char	s24[] = "This is another test!";
 	const char	s25[] = "This is another test!";
 
-	printf("TEST 15: strchr\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\n\n", ft_strchr(s24, 'i'), strchr(s25, 'i'), ft_strchr(s24, 'x'), strchr(s25, 'x'), s24, s25);
-	printf("TEST 16: strrchr\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\n\n", ft_strrchr(s24, 'i'), strrchr(s25, 'i'), ft_strrchr(s24, 'x'), strrchr(s25, 'x'), s24, s25);
+	printf("TEST 15: strchr\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\n\n", ft_strchr(s24, 'i'), strchr(s25, 'i'), ft_strchr(s24, 'x'), strchr(s25, 'x'), ft_strchr(s24, '\0'), strchr(s25, '\0'), s24, s25);
+	printf("TEST 16: strrchr\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\n\n", ft_strrchr(s24, 'i'), strrchr(s25, 'i'), ft_strrchr(s24, 'x'), strrchr(s25, 'x'), ft_strrchr("\0", 'x'), strrchr("\0", 'x'), ft_strrchr(s24, '\0'), strrchr(s25, '\0'), s24, s25);
 
 	/* STRSTR / STRNSTR TESTS */
 	const char	s26[] = "This is another test!";
 	const char	s27[] = " another ";
 	const char	s28[] = " anotfher ";
 	const char	s29[] = "";
+	const char 	*s29_1 = "MZIRIBMZIRIBMZP";
+	const char 	*s29_2 = "MZIRIBMZP";
 
-	printf("TEST 17: strstr\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\n\n", ft_strstr(s26, s27), strstr(s26, s27), ft_strstr(s26, s28), strstr(s26, s28), ft_strstr(s26, s29), strstr(s26, s29));
-	printf("TEST 18: strnstr\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\n\n", ft_strnstr(s26, s27, 40), strnstr(s26, s27, 40), ft_strnstr(s26, s27, 10), strnstr(s26, s27, 10), ft_strnstr(s26, s28, 40), strnstr(s26, s28, 40), ft_strnstr(s26, s29, 5), strnstr(s26, s29, 5));
+	printf("TEST 17: strstr\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\n\n", ft_strstr(s26, s27), strstr(s26, s27), ft_strstr(s26, s28), strstr(s26, s28), ft_strstr(s26, s29), strstr(s26, s29), ft_strstr(s29_1, s29_2), strstr(s29_1, s29_2));
+	printf("TEST 18: strnstr\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\nown: %s\nsys: %s\n\n", ft_strnstr(s26, s27, 40), strnstr(s26, s27, 40), ft_strnstr(s26, s27, 10), strnstr(s26, s27, 10), ft_strnstr(s26, s28, 40), strnstr(s26, s28, 40), ft_strnstr(s26, s29, 5), strnstr(s26, s29, 5), ft_strnstr(s29_1, s29_2, 50), strnstr(s29_1, s29_2, 50));
 
 	/* STRCMP / STRNCMP TESTS */
 	const char	s30[] = "This is a test!";
@@ -222,7 +256,7 @@ int	main(void)
 	const char	s33[] = "This is a test!";
 
 	printf("TEST 19: strcmp\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\n\n", ft_strcmp(s30, s31), strcmp(s30, s31), ft_strcmp(s30, s32), strcmp(s30, s32), ft_strcmp(s30, s33), strcmp(s30, s33));
-	printf("TEST 20: strncmp\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\n\n", ft_strncmp(s30, s31, 100), strncmp(s30, s31, 100), ft_strncmp(s30, s32, 50), strncmp(s30, s32, 50), ft_strncmp(s30, s33, 50), strncmp(s30, s33, 50), ft_strncmp(s30, s32, 5), strncmp(s30, s32, 5), ft_strncmp(s30, s33, 5), strncmp(s30, s33, 5));
+	printf("TEST 20: strncmp\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\n\n", ft_strncmp(s30, s31, 100), strncmp(s30, s31, 100), ft_strncmp(s30, s32, 50), strncmp(s30, s32, 50), ft_strncmp(s30, s33, 50), strncmp(s30, s33, 50), ft_strncmp(s30, s32, 5), strncmp(s30, s32, 5), ft_strncmp(s30, s33, 5), strncmp(s30, s33, 5), ft_strncmp(s31, s32, 6), strncmp(s31, s32, 6));
 
 	/* ATOI TESTS */
 	const char	s34[] = "2147483648";
@@ -337,7 +371,7 @@ int	main(void)
 	/* STRSUB TESTS */
 	const char 	s67[] = "Test is back!";
 
-	printf("TEST 38: strsub\nshould be t is back! (may be undefined unless strncpy is used): %s\nshould be t is: %s\nshould be undefined: %s\n\n", ft_strsub(s67, 3, 20), ft_strsub(s67, 3, 4), ft_strsub(s67, 200, 20));
+	printf("TEST 38: strsub\nshould be t is back! (may be undefined unless strncpy is used): %s\nshould be (empty): %s\nshould be undefined: %s\n\n", ft_strsub(s67, 3, 20), ft_strsub(s67, 3, 0), ft_strsub(s67, 200, 20));
 	
 	/* STRJOIN TESTS */
 	const char 	s68[] = "Test is ";
@@ -362,12 +396,21 @@ int	main(void)
 	const char 	s76[] = "This is a test!";
 	char		*s77;
 	char		*s78;
+	const char 	s75_1[] = "  \n    \t   \n  \t  ";
+	const char 	s76_1[] = "";
+	char		*s77_1;
+	char		*s78_1;
 
 	s77 = ft_strtrim(s75);
 	s78 = ft_strtrim(s76);
+	s77_1 = ft_strtrim(s75_1);
+	s78_1 = ft_strtrim(s76_1);
 	printf("TEST 39: strjoin\nshould be This is a test!: %s\nshould be This is a test!: %s\n", s77, s78);
+	printf("should be (empty): %s\nshould be (empty): %s\n", s77_1, s78_1);
 	ft_strdel(&s77);
 	ft_strdel(&s78);
+	ft_strdel(&s77_1);
+	ft_strdel(&s78_1);
 	printf("should be (null): %s\nshould be (null): %s\nno address: %p\nno address: %p\n\n", s77, s78, s77, s78);
 
 	/* STRSPLIT TESTS */
@@ -447,7 +490,7 @@ int	main(void)
 	printf("TEST 40: itoa\nshould be -2147483648: %s\nshould be -9999: %s\nshould be 0: %s\nshould be 9: %s\nshould be 100: %s\nshould be 2147483647: %s\n\n", s91, s92, s87, s88, s89, s90);
 
 	/* LSTNEW / LSTDELONE / LSTDEL TESTS */
-	char const	s93[] = "Test";
+	char const	s93[] = "Testxxxxx";
 	void const	*s94;
 	t_list		*l1;
 	t_list		*l2;

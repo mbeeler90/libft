@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:53:49 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/17 13:18:12 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/18 20:22:55 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char	*str1;
 	char	*str2;
 
+	if ((len == 0) || (!dst && !src))
+		return (dst);
 	str1 = (char *) src;
 	str2 = (char *) dst;
 	if (str2 > str1)
@@ -35,6 +37,5 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 			i++;
 		}
 	}
-	str2[len] = '\0';
 	return (dst);
 }

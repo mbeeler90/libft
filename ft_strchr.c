@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 16:31:02 by mbeeler           #+#    #+#             */
-/*   Updated: 2021/11/08 11:10:55 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/19 09:36:43 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ char	*ft_strchr(const char *s, int c)
 		if (s[i] == (char) c)
 			return ((char *)(s + i));
 	}
+	if (s[i] == (char) c)
+		return ((char *)(s + i));
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 17:00:44 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/11 17:11:08 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/19 13:07:11 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,16 @@ char	*ft_strtrim(char const *s)
 		i = 0;
 		while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
 			i++;
-		j = ft_strlen(s) - 1;
-		while (s[j] == ' ' || s[j] == '\n' || s[j] == '\t')
+		j = ft_strlen(s);
+		if (i == j)
+			len = 0;
+		else
+		{
 			j--;
-		len = j - i + 1;
+			while (s[j] == ' ' || s[j] == '\n' || s[j] == '\t')
+				j--;
+			len = j - i + 1;
+		}
 		ret = ft_strsub(s, i, len);
 		if (ret)
 			return (ret);
