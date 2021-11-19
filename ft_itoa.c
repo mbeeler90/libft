@@ -6,13 +6,13 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 14:30:37 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/17 16:30:15 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/19 15:42:02 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_check_neg(int *n, int *sign)
+static int	ft_check_neg(int *n, int *sign)
 {
 	if (*n < 0)
 	{
@@ -28,7 +28,7 @@ int	ft_check_neg(int *n, int *sign)
 	return (*n);
 }
 
-int	ft_measure_length(int n)
+static int	ft_measure_length(int n)
 {
 	int	len;
 

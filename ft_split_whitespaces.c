@@ -6,13 +6,13 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 19:43:15 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/02 20:05:10 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/19 15:44:59 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_words(char *str)
+static int	count_words(char *str)
 {
 	int		words;
 	int		i;
@@ -36,7 +36,7 @@ int	count_words(char *str)
 	return (words);
 }
 
-int	start_word(char *str, int i)
+static int	start_word(char *str, int i)
 {
 	if (i == 0)
 	{
@@ -59,7 +59,7 @@ int	start_word(char *str, int i)
 	return (0);
 }
 
-int	end_word(char *str, int i)
+static int	end_word(char *str, int i)
 {
 	while (str[i] != '\0')
 	{
@@ -75,7 +75,7 @@ int	end_word(char *str, int i)
 	return (i);
 }
 
-char	*add_words(char *str, int start, int end)
+static char	*add_words(char *str, int start, int end)
 {
 	int		length;
 	char	*string;

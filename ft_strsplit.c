@@ -6,13 +6,13 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 09:53:10 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/12 13:35:31 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/19 15:46:37 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_fillarray(char const *s, char c, char **array, unsigned int count)
+static char	**ft_fillarray(char const *s, char c, char **array, unsigned int count)
 {
 	unsigned int	i;
 	unsigned int	j;
