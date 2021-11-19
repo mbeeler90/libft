@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 10:00:20 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/19 17:12:12 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/19 19:04:00 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,24 @@
 #include <stdio.h>
 #include <strings.h>
 #include <ctype.h>
+
+void	ft_lstclearelem(void *content, size_t content_size);
+
+void	ft_strdelarray(char **as);
+
+void	ft_lstchange(t_list *lst)
+{
+	ft_memset(lst->content, '*', 3);
+}
+
+t_list	*ft_lstchangenew(t_list *lst)
+{
+	t_list	*ret;
+
+	ret = ft_lstnew(lst->content, lst->content_size);
+	ft_memset(ret->content, '!', 2);
+	return (ret);
+}
 
 void	iter_str(char *c)
 {
@@ -256,7 +274,7 @@ int	main(void)
 	const char	s33[] = "This is a test!";
 
 	printf("TEST 19: strcmp\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\n\n", ft_strcmp(s30, s31), strcmp(s30, s31), ft_strcmp(s30, s32), strcmp(s30, s32), ft_strcmp(s30, s33), strcmp(s30, s33));
-	printf("TEST 20: strncmp\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\n\n", ft_strncmp(s30, s31, 100), strncmp(s30, s31, 100), ft_strncmp(s30, s32, 50), strncmp(s30, s32, 50), ft_strncmp(s30, s33, 50), strncmp(s30, s33, 50), ft_strncmp(s30, s32, 5), strncmp(s30, s32, 5), ft_strncmp(s30, s33, 5), strncmp(s30, s33, 5), ft_strncmp(s31, s32, 0), strncmp(s31, s32, 0));
+	printf("TEST 20: strncmp\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\nown: %d\nsys: %d\n\n", ft_strncmp(s30, s31, 100), strncmp(s30, s31, 100), ft_strncmp(s30, s32, 50), strncmp(s30, s32, 50), ft_strncmp(s30, s33, 50), strncmp(s30, s33, 50), ft_strncmp(s30, s32, 5), strncmp(s30, s32, 5), ft_strncmp(s30, s33, 5), strncmp(s30, s33, 5), ft_strncmp(s31, s32, 6), strncmp(s31, s32, 6), ft_strncmp(s31, s32, 0), strncmp(s31, s32, 0));
 
 	/* ATOI TESTS */
 	const char	s34[] = "2147483648";

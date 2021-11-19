@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 10:16:26 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/17 13:31:26 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/19 19:01:12 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,5 @@ void		ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void		ft_lstadd(t_list **alst, t_list *new);
 void		ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-void		ft_lstchange(t_list *lst);
-t_list		*ft_lstchangenew(t_list *lst);
 
 #endif

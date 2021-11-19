@@ -6,7 +6,7 @@
 #    By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 20:12:34 by manuelbeele       #+#    #+#              #
-#    Updated: 2021/11/17 16:32:03 by manuelbeele      ###   ########.fr        #
+#    Updated: 2021/11/19 19:01:25 by manuelbeele      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,6 @@ SRCS += ./ft_list_push_front.c
 SRCS += ./ft_list_push_params.c
 SRCS += ./ft_list_size.c
 SRCS += ./ft_lstadd.c
-SRCS += ./ft_lstchange.c
-SRCS += ./ft_lstchangenew.c
 SRCS += ./ft_lstclearelem.c
 SRCS += ./ft_lstdel.c
 SRCS += ./ft_lstdelone.c
