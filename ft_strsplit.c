@@ -6,13 +6,14 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 09:53:10 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/19 15:46:37 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/23 12:30:14 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	**ft_fillarray(char const *s, char c, char **array, unsigned int count)
+static char	**ft_fillarray(char const *s, char c, char **array, \
+	unsigned int count)
 {
 	unsigned int	i;
 	unsigned int	j;
@@ -44,7 +45,7 @@ char	**ft_strsplit(char const *s, char c)
 	unsigned int	i;
 	unsigned int	count;
 
-	if (!s || !c)
+	if (!s)
 		return (NULL);
 	i = 0;
 	count = 1;
