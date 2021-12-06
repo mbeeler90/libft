@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 18:40:06 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/29 22:07:40 by manuelbeele      ###   ########.fr       */
+/*   Created: 2021/11/26 20:07:00 by manuelbeele       #+#    #+#             */
+/*   Updated: 2021/11/26 20:10:54 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strndup(const char *s1, size_t len)
 {
-	int	i;
+	char	*copy;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	if (len > ft_strlen(s1))
+		len = ft_strlen(s1);
+	copy = (char *) malloc(len + 1);
+	if (!copy)
+		return (NULL);
+	return (ft_strmove(copy, s1, len));
 }

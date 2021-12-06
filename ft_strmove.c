@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 18:40:06 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/29 22:07:40 by manuelbeele      ###   ########.fr       */
+/*   Created: 2021/11/26 16:16:46 by manuelbeele       #+#    #+#             */
+/*   Updated: 2021/12/05 17:20:45 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strmove(char *dst, const char *src, size_t len)
 {
-	int	i;
+	size_t	i;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	if ((len == 0) || (!dst && !src))
+		return (dst);
+	if (dst > src)
+	{
+		i = len;
+		while (i-- > 0)
+			dst[i] = src[i];
+	}
+	else
+	{
+		i = 0;
+		while (i < len)
+		{
+			dst[i] = src[i];
+			i++;
+		}
+	}
+	return (dst);
 }

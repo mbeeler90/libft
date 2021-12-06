@@ -6,7 +6,7 @@
 #    By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 20:12:34 by manuelbeele       #+#    #+#              #
-#    Updated: 2021/11/19 19:01:25 by manuelbeele      ###   ########.fr        #
+#    Updated: 2021/11/26 20:22:20 by manuelbeele      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,6 +101,10 @@ SRCS += ./ft_swap.c
 SRCS += ./ft_tolower.c
 SRCS += ./ft_toupper.c
 SRCS += ./ft_ultimate_range.c
+SRCS += ./ft_strchrloc.c
+SRCS += ./ft_strmove.c
+SRCS += ./ft_strndup.c
+SRCS += ./ft_strnjoin.c
 
 OBJECTS = $(SRCS:.c=.o)
 

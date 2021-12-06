@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 10:16:26 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/19 19:01:12 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2021/11/26 20:21:44 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,5 +122,10 @@ void		ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void		ft_lstadd(t_list **alst, t_list *new);
 void		ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+size_t		ft_strchrloc(const char *s, int c);
+char		*ft_strmove(char *dst, const char *src, size_t len);
+char		*ft_strndup(const char *s1, size_t len);
+char		*ft_strnjoin(char const *s1, char const *s2, size_t len1, \
+			size_t len2);
 
 #endif
