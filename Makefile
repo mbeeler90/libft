@@ -6,7 +6,7 @@
 #    By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 20:12:34 by manuelbeele       #+#    #+#              #
-#    Updated: 2021/11/26 20:22:20 by manuelbeele      ###   ########.fr        #
+#    Updated: 2022/01/14 16:34:28 by manuelbeele      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -105,6 +105,7 @@ SRCS += ./ft_strchrloc.c
 SRCS += ./ft_strmove.c
 SRCS += ./ft_strndup.c
 SRCS += ./ft_strnjoin.c
+SRCS += ./get_next_line.c
 
 OBJECTS = $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 10:16:26 by manuelbeele       #+#    #+#             */
-/*   Updated: 2021/11/26 20:21:44 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2022/01/14 16:34:38 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,5 +127,6 @@ char		*ft_strmove(char *dst, const char *src, size_t len);
 char		*ft_strndup(const char *s1, size_t len);
 char		*ft_strnjoin(char const *s1, char const *s2, size_t len1, \
 			size_t len2);
+int			get_next_line(const int fd, char **line);
 
 #endif
