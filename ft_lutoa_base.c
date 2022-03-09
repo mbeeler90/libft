@@ -1,26 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   ft_lutoa_base.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 20:07:00 by manuelbeele       #+#    #+#             */
-/*   Updated: 2022/02/08 15:16:21 by manuelbeele      ###   ########.fr       */
+/*   Created: 2021/11/12 14:30:37 by manuelbeele       #+#    #+#             */
+/*   Updated: 2022/02/19 00:06:37 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strndup(const char *s1, size_t len)
+static int	ft_measure_length(unsigned long n, int base)
 {
-	char	*copy;
+	int	len;
 
-	if (len > ft_strlen(s1))
-		len = ft_strlen(s1);
-	copy = (char *) malloc(len + 1);
-	if (!copy)
+	len = 0;
+	while (n > (unsigned long) base - 1)
+	{
+		n /= base;
+		len++;
+	}
+	return (len);
+}
+
+char	*ft_lutoa_base(unsigned long n, int base)
+{
+	int		len;
+	char	*ret;
+
+	len = ft_measure_length(n, base) + 1;
+	ret = ft_strnew((char) len);
+	if (!ret)
 		return (NULL);
-	copy[len] = '\0';
-	return (ft_strmove(copy, s1, len));
+	ret[len] = '\0';
+	while (--len >= 0)
+	{
+		ret[len] = '0' + (n % base);
+		n /= base;
+	}
+	return (ret);
 }

@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 20:07:00 by manuelbeele       #+#    #+#             */
-/*   Updated: 2022/02/08 15:16:21 by manuelbeele      ###   ########.fr       */
+/*   Created: 2021/11/02 10:16:26 by manuelbeele       #+#    #+#             */
+/*   Updated: 2022/03/04 15:49:25 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef TYPES_H
+# define TYPES_H
 
-char	*ft_strndup(const char *s1, size_t len)
-{
-	char	*copy;
+typedef unsigned char	t_u8;
+typedef unsigned short	t_u16;
+typedef unsigned int	t_u32;
+typedef unsigned long	t_u64;
+typedef char			t_s8;
+typedef short			t_s16;
+typedef int				t_s32;
+typedef long			t_s64;
+typedef float			t_f32;
+typedef double			t_f64;
+typedef long double		t_f128;
 
-	if (len > ft_strlen(s1))
-		len = ft_strlen(s1);
-	copy = (char *) malloc(len + 1);
-	if (!copy)
-		return (NULL);
-	copy[len] = '\0';
-	return (ft_strmove(copy, s1, len));
-}
+#endif

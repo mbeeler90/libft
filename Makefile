@@ -6,7 +6,7 @@
 #    By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 20:12:34 by manuelbeele       #+#    #+#              #
-#    Updated: 2022/01/14 16:34:28 by manuelbeele      ###   ########.fr        #
+#    Updated: 2022/03/04 15:23:03 by manuelbeele      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,6 +106,23 @@ SRCS += ./ft_strmove.c
 SRCS += ./ft_strndup.c
 SRCS += ./ft_strnjoin.c
 SRCS += ./get_next_line.c
+SRCS += ./ft_strjoin_inplace.c
+SRCS += ./ft_strpad_left_inplace.c
+SRCS += ./ft_strpad_left.c
+SRCS += ./ft_strpad_right_inplace.c
+SRCS += ./ft_strpad_right.c
+SRCS += ./ft_strtrim_char_left_inplace.c
+SRCS += ./ft_strtrim_char_left.c
+SRCS += ./ft_strtrim_char_right_inplace.c
+SRCS += ./ft_strtrim_char_right.c
+SRCS += ./ft_lutoa_base.c
+SRCS += ./ft_lutoa.c
+SRCS += ./ft_lutobin.c
+SRCS += ./ft_bintolu.c
+SRCS += ./ft_bintoa.c
+SRCS += ./ft_round_string.c
+SRCS += ./ft_round_string_inplace.c
+SRCS += ./ft_lutobin_size.c
 
 OBJECTS = $(SRCS:.c=.o)
 

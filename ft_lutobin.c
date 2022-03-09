@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   ft_lutobin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 20:07:00 by manuelbeele       #+#    #+#             */
-/*   Updated: 2022/02/08 15:16:21 by manuelbeele      ###   ########.fr       */
+/*   Created: 2021/11/23 14:43:19 by mbeeler           #+#    #+#             */
+/*   Updated: 2022/03/04 14:03:11 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strndup(const char *s1, size_t len)
+char	*ft_lutobin(unsigned long n)
 {
-	char	*copy;
+	char	*bin;
+	int		i;
 
-	if (len > ft_strlen(s1))
-		len = ft_strlen(s1);
-	copy = (char *) malloc(len + 1);
-	if (!copy)
-		return (NULL);
-	copy[len] = '\0';
-	return (ft_strmove(copy, s1, len));
+	i = -1;
+	bin = ft_strnew(64);
+	ft_memset(bin, '0', 64);
+	if (n)
+	{
+		while (++i < 64)
+		{
+			if ((n << (63 - i)) >> 63 > 0)
+				bin[63 - i] = '1';
+		}
+	}
+	return (bin);
 }

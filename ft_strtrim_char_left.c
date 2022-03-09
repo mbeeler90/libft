@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim_char_left.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 20:07:00 by manuelbeele       #+#    #+#             */
-/*   Updated: 2022/02/08 15:16:21 by manuelbeele      ###   ########.fr       */
+/*   Created: 2021/11/23 14:43:19 by mbeeler           #+#    #+#             */
+/*   Updated: 2022/02/19 00:02:39 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strndup(const char *s1, size_t len)
+char	*ft_strtrim_char_left(char const *s, char c)
 {
-	char	*copy;
+	unsigned int	i;
+	unsigned int	j;
+	unsigned int	len;
+	char			*ret;
 
-	if (len > ft_strlen(s1))
-		len = ft_strlen(s1);
-	copy = (char *) malloc(len + 1);
-	if (!copy)
-		return (NULL);
-	copy[len] = '\0';
-	return (ft_strmove(copy, s1, len));
+	if (s)
+	{
+		i = 0;
+		while (s[i] == c)
+			i++;
+		j = ft_strlen(s);
+		len = j - i;
+		if (len > 0)
+		{
+			ret = ft_strdup(s + i);
+			if (ret)
+				return (ret);
+		}
+	}
+	return (NULL);
 }

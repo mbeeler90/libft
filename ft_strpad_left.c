@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   ft_strpad_left.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 20:07:00 by manuelbeele       #+#    #+#             */
-/*   Updated: 2022/02/08 15:16:21 by manuelbeele      ###   ########.fr       */
+/*   Created: 2021/11/23 14:43:19 by mbeeler           #+#    #+#             */
+/*   Updated: 2022/02/18 23:59:00 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strndup(const char *s1, size_t len)
+char	*ft_strpad_left(const char *str, char c, int num)
 {
-	char	*copy;
+	char	*ret;
+	int		i;
 
-	if (len > ft_strlen(s1))
-		len = ft_strlen(s1);
-	copy = (char *) malloc(len + 1);
-	if (!copy)
+	if (!str)
 		return (NULL);
-	copy[len] = '\0';
-	return (ft_strmove(copy, s1, len));
+	ret = ft_strnew(ft_strlen(str) + num);
+	ft_strcpy(ret + num, str);
+	i = -1;
+	while (++i < num)
+		ret[i] = c;
+	return (ret);
 }

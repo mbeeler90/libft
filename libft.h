@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 10:16:26 by manuelbeele       #+#    #+#             */
-/*   Updated: 2022/01/14 16:34:38 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2022/03/04 15:22:46 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include "types.h"
+# include "get_next_line.h"
 
 typedef struct s_btree
 {
@@ -128,5 +130,22 @@ char		*ft_strndup(const char *s1, size_t len);
 char		*ft_strnjoin(char const *s1, char const *s2, size_t len1, \
 			size_t len2);
 int			get_next_line(const int fd, char **line);
+void		ft_strjoin_inplace(char **s1, char **s2);
+void		ft_strpad_left_inplace(char **str, char c, int num);
+char		*ft_strpad_left(const char *str, char c, int num);
+void		ft_strpad_right_inplace(char **str, char c, int num);
+char		*ft_strpad_right(const char *str, char c, int num);
+void		ft_strtrim_char_left_inplace(char **s, char c);
+char		*ft_strtrim_char_left(char const *s, char c);
+void		ft_strtrim_char_right_inplace(char **s, char c);
+char		*ft_strtrim_char_right(char const *s, char c);
+char		*ft_lutoa_base(unsigned long n, int base);
+char		*ft_lutoa(unsigned long n);
+char		*ft_lutobin(unsigned long n);
+t_u64		ft_bintolu(const char *str);
+char		*ft_bintoa(const char *binary);
+char		*ft_round_string(const char *num);
+void		ft_round_string_inplace(char **num);
+char		*ft_lutobin_size(unsigned long n, char size);
 
 #endif
