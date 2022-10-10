@@ -6,7 +6,7 @@
 /*   By: manuelbeeler <manuelbeeler@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 10:16:26 by manuelbeele       #+#    #+#             */
-/*   Updated: 2022/03/04 15:22:46 by manuelbeele      ###   ########.fr       */
+/*   Updated: 2022/03/18 09:59:28 by manuelbeele      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <string.h>
 # include "types.h"
 # include "get_next_line.h"
+# include "./ft_printf/includes/ft_printf.h"
 
 typedef struct s_btree
 {
